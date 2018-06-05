@@ -1,0 +1,17 @@
+{"typeList" : [
+  {
+    "typeMessage" : "error",
+    "collection" : "error",
+    "group" : {
+      "delay" : "1h"
+    }
+  },
+  {
+    "typeMessage" : "exploit",
+    "collection" : "exploit"
+  },
+  {
+    "typeMessage" : "eai",
+    "collection" : "eai"
+  }
+]}

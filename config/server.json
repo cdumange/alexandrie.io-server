@@ -1,0 +1,19 @@
+{
+  "port" : 9514,
+  "portws" : 65123,
+  "portTCP" : 9515,
+  "testType" : "testWithNoSave",
+  "mongo" : {
+    "user" : "alexUser",
+    "pwd" : "4l3xPwD!",
+    "db" : "alexandrie",
+    "dbTest" : "alexandrie",
+    "host" : "srv-sqltest"
+  },
+  "cfgAMQ" : {
+      "address" : "chcn-amq:xxxxx",
+      "queues" : [
+
+      ]
+    }
+}
