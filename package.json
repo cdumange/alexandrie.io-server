@@ -1,0 +1,22 @@
+{
+  "name": "alexandrie.io-server",
+  "version": "0.2.0",
+  "description": "server receiving the log demands",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "author": "c.dumange",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chcn-ws-tools": "^1.0.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "mocha": "^5.0.1",
+    "mongodb": "^3.0.3",
+    "socket.io": "^2.0.4",
+    "stomp-client": "^0.9.0"
+  }
+}
