@@ -1,0 +1,17 @@
+{
+    "cleaning" : [
+        { 
+            "typeMessage": "default",
+            "value" : "3m"
+        },
+        {
+            "typeMessage" : "eai",
+            "value" : "6m"
+        },
+        {
+            "typeMessage" : "error",
+            "value" : "7d"
+        }
+    ],
+    "cronTemplate" : "0 0 4 * * *"
+}

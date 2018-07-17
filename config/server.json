@@ -8,7 +8,8 @@
     "pwd" : "4l3xPwD!",
     "db" : "alexandrie",
     "dbTest" : "alexandrie",
-    "host" : "srv-sqltest"
+    "host" : "srv-sqltest",
+    "port": 27017
   },
   "cfgAMQ" : {
       "address" : "chcn-amq:xxxxx",
