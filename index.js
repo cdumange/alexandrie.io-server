@@ -5,10 +5,17 @@ var http = require('http');
 
 var app = express();
 
+process.env.debug = true;
+
 const cfserver = require('./config/server');
+const configAlex = require('./config/io-client.json');
+let configMail= require('./config/mail.json');
 const MessageManager = require('./lib/messManager');
 const DataManager = require('./lib/dataManager');
 const mongoClient = require('./lib/mongo').mongoClient;
+const MailClient = require('./lib/MailClient');
+const logger = require('alexandrie.io-node');
+
 const mongo = new mongoClient();
 let db = null;
 
@@ -19,28 +26,24 @@ mongo.getConn().then((dba) => {
   require('./lib/connectors/websocket')(messManager);
 })
 
+//initialisation du logger
+if(configAlex != {}) logger.getInstance().init(configAlex);
 
-
+//Lancement de l'interfacage mail
+if (configMail != {}) new MailClient(configMail);
+//Lancement rest
 const restfull = require('./lib/connectors/rest');
+//lancement scan AMQ
 require('./lib/connectors/amq')();
 
 
-process.env.debug = true;
-
 var port = normalizePort(cfserver.port || '9514');
-
 app.set('port', port);
 var server = http.createServer(app);
 
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
-
-//Gestion des reject non gérés
-process.on('unhandledRejection', (reason, promise) => {
-  console.log('Unhandled Rejection at:', reason.stack || reason)
-});
 
 app.use(bodyParser.json({
   limit: '10mb',
@@ -71,6 +74,11 @@ app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
+});
+
+//Gestion des reject non gérés
+process.on('unhandledRejection', (reason, promise) => {
+  console.log('Unhandled Rejection at:', reason.stack || reason)
 });
 
 // error handler

@@ -1,0 +1,7 @@
+{
+    "mode": "ws",
+    "addressws": "localhost",
+    "portws": 65123,
+    "address": 9514,
+    "suffix": ""
+}

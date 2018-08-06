@@ -1,0 +1,78 @@
+{
+    "imap": {
+        "user": "user",
+        "password": "mdp",
+        "host": "server",
+        "port": 143,
+        "autotls": "required",
+        "tls": false,
+        "authTimeout": 20000,
+        "tlsOptions": {
+            "rejectUnauthorized": false
+        }
+    },
+    "autoDelete" : true,
+    "default": {
+        "typeMessage": "exploit",
+        "origine": "exploit",
+        "priority": "info",
+        "words": [{
+                "key": "error",
+                "level": 3,
+                "values": ["error", "fatal", "crash"]
+            },
+            {
+                "key": "warn",
+                "level": 2,
+                "values": ["warn", "alert"]
+            },
+            {
+                "key": "success",
+                "level": 1,
+                "values": ["success", "supercalifragilisticexpialidocious"]
+            }
+        ]
+    },
+    "specific": [{
+            "from": "mail@test",
+            "typeMessage": "error",
+            "origine": "error",
+            "priority": "error"
+        },
+        {
+            "from": "no-reply@restest",
+            "typeMessage": "exploit",
+            "origine": "Supervision",
+            "priority": "info",
+            "words": [
+                {
+                    "key" : "warn",
+                    "level" : 2,
+                    "values" : ["TABLEAU DE BORD DES SECRETARIATS"],
+                    "origine" : "Tableau de bord sec"
+                },
+                {
+                    "key" : "success",
+                    "level" : 3,
+                    "values" : ["Le traitement s'est déroulé correctement"],
+                    "origine" : "HD Medi"
+                },
+                {
+                    "key": "warn",
+                    "level": 4,
+                    "values": ["error", "fatal", "crash"]
+                },
+                {
+                    "key": "error",
+                    "level": 3,
+                    "values": ["warn", "alert"]
+                },
+                {
+                    "key": "success",
+                    "level": 5,
+                    "values": ["success", "supercalifragilisticexpialidocious"]
+                }
+            ]
+        }
+    ]
+}
